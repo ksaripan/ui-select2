@@ -192,7 +192,8 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
         }
 
         elm.bind("$destroy", function() {
-          elm.select2("destroy");
+          if (elm.data('select2'))
+            elm.select2("destroy");
         });
 
         attrs.$observe('disabled', function (value) {
